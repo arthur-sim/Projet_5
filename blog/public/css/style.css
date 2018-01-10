@@ -1,0 +1,172 @@
+body{ 
+	margin: 0px;
+	background-color: white;
+	color: white;
+}
+p{
+	font-size: 1.1em;
+}a{
+	font-size: 1em;
+}a:hover{
+	text-decoration: none;
+}h1{
+	font-size: 2.5em;
+}
+header{
+	position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+#header_style {
+	background-color:rgba(51, 51, 51, 0.5);; 
+	color: white; 
+	height: 7vh;
+}
+header img{
+	width: 65%;
+	padding: 1vh 1.5vh 0 0;
+}
+#head_a{
+	padding: 0.5vh 0 0 2.5vh;
+}
+#head_p{
+	padding: 2vh 0 0 0vh;
+	color: white;
+}
+#header{
+	background-image: url('images/header_1.jpg');
+	background-size: cover;
+	height: 100vh;
+}
+#navigation{
+	background-color:rgba(51, 51, 51, 0.3);; 
+	color: white;
+}
+#navigation li {
+	color: rgba(51, 0, 0, 0);
+}
+#navigation a {
+	color: rgba(255,255,255,0.8);
+}
+#navigation a:hover {
+	color: #18386d;
+}
+#_menu{
+	height: 5vh;
+	color: black;
+}
+#_menu_txt_1{
+	background-color: #657a9b ;
+	text-align: center;
+	padding: 0.5% 0 0.7% 0;
+}#_menu_txt_2{
+	background-color: #738fbc;
+	text-align: center;
+	padding: 0.5% 0 0.7% 0;
+}#_menu_txt_3{
+	background-color: #4e6891;
+	text-align: center;
+	padding: 0.5% 0 0.7% 0;
+}
+#_menu_a{
+	color: white;
+}
+#_menu_txt_1:hover{
+	background-color: #253856;
+}#_menu_txt_2:hover{
+	background-color: #253856;
+}#_menu_txt_3:hover{
+	background-color: #253856;
+}
+#moi{
+	background-image: url('images/moi.jpg');
+	background-size: cover;
+	height: 60vh;
+	border-top: 1px white solid;
+}
+#moi_texte{
+	padding: 16vh 0vh 0vh 30vh; 
+	font-size: 4.5em;
+}
+#titre{
+	margin: 0;
+	padding: 40vh 0px 0px 50vh;
+	font-size: 9em;
+} 	
+#posts{
+	width: 75%;
+	margin: auto;
+	color: black;
+}
+#cv{
+	color: white;
+	background-color: #e6e6e6;
+	margin-top: -1.1%;
+}#_cv{
+	padding: 5% 0 5% 0;
+	width: 80%;
+	margin: auto;
+}#_cv h1{
+	color: #337ab7;
+}#_cv h2{
+	width: 95%;
+	margin: auto;
+}#_cv p{
+	width: 90%;
+	margin: auto;
+}
+#nouv{
+	background-image: url('images/fond.jpg');
+	background-size: cover;
+	height: 60vh;
+}
+#nouv_txt{
+	padding: 22vh 0vh 0vh 30vh; 
+	font-size: 4.5em;
+}
+#contact {
+	background-color: rgb(51, 51, 51);
+	width: 80%;
+	margin: auto;
+	margin-bottom: 15%;
+}
+#contact_background{
+	background-image: url('images/fond.png');
+	background-size: cover;
+}
+#contact_padding{
+	padding: 10vh 15vh 10vh 15vh;
+}
+#reseaux{
+	display: flex;
+	justify-content: center;
+}
+input{
+	width: 100%; 
+	height: 5vh;
+}textarea{
+	width: 100%;  	 
+	height: 10vh;
+}#boutonmail{
+	border-radius: 0%; 
+	height: 5vh;
+	width: 50%;
+}
+#monter{
+	margin-top: -0.1%;
+	background-color: #262626;
+	text-align: center;
+}
+#monter:hover{
+	background-color: #29323f;
+}
+#fleche{
+	width: 2%;
+	padding: 0.5vh 0 0.5vh 0;
+}
+footer {
+	background-color:#333333; 
+	color: white; 
+	height: 7vh;
+}
