@@ -4,8 +4,13 @@ use Core\Exception\HttpException;
 
 abstract class HttpExceptionManager {
     static function handle(HttpException $e) {
-        switch ($e->getCodeHttp()) {
-            case 404: 
+
+        $codeErreur = $e->getCodeHttp();
+
+        include '../app/views/erreurs.php';
+
+            /** case 404: 
+                header('Location: index.php');
                 echo '404';
                 break;
                 
@@ -16,7 +21,6 @@ abstract class HttpExceptionManager {
                 
             default:
                 echo $e->getCodeHttp();
-                break;
-        }
+                break; **/
     }
 }
