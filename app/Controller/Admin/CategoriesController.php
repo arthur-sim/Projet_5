@@ -17,7 +17,7 @@ class CategoriesController extends AppController
     {
         $items = $this->Category->all();
         if ($items === false) {
-            $this->notFound();
+            throw new HttpException(404);
         }
         $this->render('posts.admin.categories.index', compact('items'));
     }
