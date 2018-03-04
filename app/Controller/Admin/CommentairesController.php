@@ -17,7 +17,7 @@ class CommentairesController extends AppController
     {
         $items = $this->Commentaire->all();
         if ($items === false) {
-            $this->notFound();
+            throw new HttpException(404);
         }
         $this->render('posts.admin.commentaire.index', compact('items'));
     }

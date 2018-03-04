@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 use Core\HTML\BootstrapForm;
 use Core\Utils\Token;
 
-
 class PostsController extends AppController
 {
 
@@ -18,7 +17,7 @@ class PostsController extends AppController
     {
         $posts = $this->Post->all();
         if ($posts === false) {
-            $this->notFound();
+            throw new HttpException(404);
         }
         $this->render('posts.admin.posts.index', compact('posts'));
     }
@@ -43,8 +42,6 @@ class PostsController extends AppController
                         'category_id' => $_POST['category_id'],
                         'date' => date("Y-m-d h_m-s")
                     ]);
-
-                    /**$this->redirectTo('?');**/
                     header('Location: index.php?p=admin.posts.index');
                 }
             }

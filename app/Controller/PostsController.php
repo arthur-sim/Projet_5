@@ -27,7 +27,7 @@ class PostsController extends AppController
     {
         $categorie = $this->Category->find($_GET['id']);
         if ($categorie === false) {
-            $this->notFound();
+            throw new HttpException(404);
         }
         $articles = $this->Post->lastByCategory($_GET['id']);
         $categories = $this->Category->all();
@@ -38,7 +38,7 @@ class PostsController extends AppController
     {
         $article = $this->Post->findWithCategory($_GET['id']);
         if ($article === false) {
-            $this->notFound();
+            throw new HttpException(404);
         }
         $commentaires = $this->Commentaire->commentairesOn($_GET['id']);
         $this->render('posts.show', compact('article', 'commentaires'));
