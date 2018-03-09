@@ -4,6 +4,10 @@ namespace Core\Utils;
 abstract class Token {
 
     static public function generate() {
+        if (!empty($_SESSION['csrf']) && !empty($_SESSION['csrf']['token'])) {
+            $_SESSION['csrf'] ['createAt'] = new \DateTime();
+            return $_SESSION['csrf']['token'];
+        }
         $token = bin2hex(random_bytes(32));
 
         $_SESSION['csrf'] = [
@@ -26,7 +30,7 @@ abstract class Token {
         if ((time() - $_SESSION['csrf']['createAt']->getTimestamp()) > 15 * 60) {
             return false;
         }
-
+        unset($_SESSION['csrf']);
         return true;
     }
 }
