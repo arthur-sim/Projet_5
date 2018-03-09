@@ -19,7 +19,8 @@ class PostsController extends AppController
         if ($posts === false) {
             throw new HttpException(404);
         }
-        $this->render('posts.admin.posts.index', compact('posts'));
+        $form = new BootstrapForm();
+        $this->render('posts.admin.posts.index', compact('posts', 'form'));
     }
 
     public function add()
@@ -103,6 +104,7 @@ class PostsController extends AppController
                 }
             }
         }
+
     }
 
 }

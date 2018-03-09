@@ -19,7 +19,8 @@ class CategoriesController extends AppController
         if ($items === false) {
             throw new HttpException(404);
         }
-        $this->render('posts.admin.categories.index', compact('items'));
+        $form = new BootstrapForm();
+        $this->render('posts.admin.categories.index', compact('items' , 'form'));
     }
 
     public function add()

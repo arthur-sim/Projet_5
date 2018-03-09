@@ -33,7 +33,7 @@
 			<h1>Ajout / Edition</h1>
 			<form method="post">
 				<?= $form->input('titre', 'Titre de la catégorie'); ?>
-                <input type="hidden" name="token" id="token" value="<?= $token ?> ">
+                <?= $form->inputCsrf(); ?>
 				<button class="btn btn-primary" >Sauvegarder</button>
 			</form>
 		</div>

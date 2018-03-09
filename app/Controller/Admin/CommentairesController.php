@@ -19,36 +19,8 @@ class CommentairesController extends AppController
         if ($items === false) {
             throw new HttpException(404);
         }
-        $this->render('posts.admin.commentaire.index', compact('items'));
-    }
-
-    public function add()
-    {
-        $errors = [];
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            if (empty($_POST['csrf'])) {
-                $errors['csrf'] = 'Token csrf invalide, veuillez renvoyer le formulaire';
-            } elseif (!Token::verify($_POST['csrf'])) {
-                $errors['csrf'] = 'Token csrf invalide, veuillez renvoyer le formulaire';
-            }
-
-            if (empty($errors)) {
-                if (!empty($_POST)) {
-                    $result = $this->Commentaire->create([
-                        'nom' => $_POST['nom'],
-                        'titre' => $_POST['titre'],
-                        'contenu' => $_POST['contenu'],
-                        'verif' => 0
-                    ]);
-
-                    header('Location: index.php?p=admin.commentaire.index');
-                }
-            }
-        }
-        $form = new BootstrapForm($_POST);
-        $this->render('posts.admin.commentaire.edit', compact('form'));
+        $form = new BootstrapForm();
+        $this->render('posts.admin.commentaire.index', compact('items','form'));
     }
 
     public function edit()
