@@ -36,7 +36,7 @@
 				<?= $form->input('titre', 'Titre'); ?>
 				<?= $form->input('contenu', 'Contenu'); ?>
                 <?= $form->input('verif', 'Verification'); ?>
-                <input type="hidden" name="token" id="token" value="<?= $token ?> ">
+                <?= $form->inputCsrf(); ?>
 				<button class="btn btn-primary" >Sauvegarder</button>
 			</form>
 		</div>

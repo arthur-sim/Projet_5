@@ -50,7 +50,7 @@
 							<form action="?p=admin.categories.delete" method="post" style="display: inline;">
 							    <input type="hidden" name="id" value="<?= $category->id ?>">
 							    <button type="submit" class="btn btn-danger" style="border-radius: 0%;">Suprimmer</button>
-                                <input type="hidden" name="token" id="token" value="<?= $token ?> ">
+                                <?= $form->inputCsrf(); ?>
 							</form>
 						</td>
 					</tr>

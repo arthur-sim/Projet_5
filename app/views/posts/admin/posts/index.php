@@ -49,7 +49,7 @@
 								<form action="?p=admin.posts.delete" method="post" style="display: inline;">
 								    <input type="hidden" name="id" value="<?= $post->id ?>">
 								    <button type="submit" class="btn btn-danger" style="border-radius: 0%;">Suprimmer</button>
-                                    <input type="hidden" name="token" id="token" value="<?= $token ?> ">
+								    <?= $form->inputCsrf(); ?>
 								</form>
 							</td>
 						</tr>
