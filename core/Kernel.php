@@ -23,7 +23,6 @@ abstract class Kernel{
         }else{
             $page = 'posts.index';
         }
-        /** erreurs 404 + erreurs 500 */
 
         require '../core/controller/controller.php';
 
