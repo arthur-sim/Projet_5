@@ -1,30 +1,27 @@
 <?php
+
 namespace App\Controller;
 
 use Core\Controller\Controller;
 use Core\HTML\BootstrapForm;
 use Core\Utils\Token;
 
-class PostsController extends AppController
-{
+class PostsController extends AppController {
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->loadModel('Post');
         $this->loadModel('Commentaire');
         $this->loadModel('Category');
     }
 
-    public function index()
-    {
+    public function index() {
         $posts = $this->Post->last();
         $categories = $this->Category->all();
         $this->render('posts.index', compact('posts', 'categories'));
     }
 
-    public function category()
-    {
+    public function category() {
         $categorie = $this->Category->find($_GET['id']);
         if ($categorie === false) {
             throw new HttpException(404);
@@ -34,8 +31,7 @@ class PostsController extends AppController
         $this->render('posts.category', compact('articles', 'categories', 'categorie'));
     }
 
-    public function show()
-    {
+    public function show() {
         $article = $this->Post->findWithCategory($_GET['id']);
         if ($article === false) {
             throw new HttpException(404);
@@ -44,8 +40,7 @@ class PostsController extends AppController
         $this->render('posts.show', compact('article', 'commentaires'));
     }
 
-    public function add_commentaire()
-    {
+    public function add_commentaire() {
         $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -55,19 +50,25 @@ class PostsController extends AppController
             } elseif (!Token::verify($_POST['csrf'])) {
                 $errors['csrf'] = 'Token csrf invalide, veuillez renvoyer le formulaire';
             }
-
+            if (empty($_POST['nom'])) {
+                $errors['nom'] = 'Le nom ne peut pas être vide';
+            }
+            if (empty($_POST['titre'])) {
+                $errors['titre'] = 'Le titre ne peut pas être vide';
+            }
+            if (empty($_POST['contenu'])) {
+                $errors['contenu'] = 'Le contenu ne peut pas être vide';
+            }
             if (empty($errors)) {
-                if (!empty($_POST)) {
-                    $result = $this->Commentaire->create([
-                        'nom' => $_POST['nom'],
-                        'titre' => $_POST['titre'],
-                        'contenu' => $_POST['contenu'],
-                        'date' => date("Y-m-d h_m-s"),
-                        'article_id' => $_GET['id']
-                    ]);
+                $result = $this->Commentaire->create([
+                    'nom' => $_POST['nom'],
+                    'titre' => $_POST['titre'],
+                    'contenu' => $_POST['contenu'],
+                    'date' => date("Y-m-d h_m-s"),
+                    'article_id' => $_GET['id']
+                ]);
 
-                    header('Location: index.php');
-                }
+                header('Location: index.php');
             }
         }
         $form = new BootstrapForm($_POST);
