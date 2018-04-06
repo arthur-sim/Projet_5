@@ -1,5 +1,7 @@
-<?php 
+<?php
+
 include '../core/Kernel.php';
+
 use \Core\Exception\HttpExceptionManager;
 use \Core\Exception\HttpException;
 

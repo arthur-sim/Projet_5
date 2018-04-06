@@ -21,9 +21,9 @@
     </div>
 
     <div style="display: flex; font-size: 1.5em;">
-      <?php foreach($categories as $categorie): ?>
-        <li><a href="<?= $categorie->url; ?>"><?php display($categorie->titre); ?></a></li>
-      <?php endforeach ?>
+        <?php foreach ($categories as $categorie): ?>
+            <li><a href="<?= $categorie->url; ?>"><?php display($categorie->titre); ?></a></li>
+        <?php endforeach ?>
     </div>
     <div id="posts" style="margin-top: 3%; margin-bottom: 5%;">
         <?php foreach ($articles as $post): ?>
