@@ -1,30 +1,27 @@
 <?php
+
 namespace App\Controller\Admin;
 
 use Core\HTML\BootstrapForm;
 use Core\Utils\Token;
 
-class CategoriesController extends AppController
-{
+class CategoriesController extends AppController {
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->loadModel('Category');
     }
 
-    public function index()
-    {
+    public function index() {
         $items = $this->Category->all();
         if ($items === false) {
             throw new HttpException(404);
         }
         $form = new BootstrapForm();
-        $this->render('posts.admin.categories.index', compact('items' , 'form'));
+        $this->render('posts.admin.categories.index', compact('items', 'form'));
     }
 
-    public function add()
-    {
+    public function add() {
         $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -34,23 +31,23 @@ class CategoriesController extends AppController
             } elseif (!Token::verify($_POST['csrf'])) {
                 $errors['csrf'] = 'Token csrf invalide, veuillez renvoyer le formulaire';
             }
+            if (empty($_POST['titre'])) {
+                $errors['titre'] = 'Le titre ne peut pas être vide';
+            }
 
             if (empty($errors)) {
-                if (!empty($_POST)) {
-                    $result = $this->Category->create([
-                        'titre' => $_POST['titre'],
-                    ]);
+                $result = $this->Category->create([
+                    'titre' => $_POST['titre'],
+                ]);
 
-                    header('Location: index.php?p=admin.categories.index');
-                }
+                header('Location: index.php?p=admin.categories.index');
             }
         }
         $form = new BootstrapForm($_POST);
         $this->render('posts.admin.categories.edit', compact('form'));
     }
 
-    public function edit()
-    {
+    public function edit() {
         $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -60,14 +57,14 @@ class CategoriesController extends AppController
             } elseif (!Token::verify($_POST['csrf'])) {
                 $errors['csrf'] = 'Token csrf invalide, veuillez renvoyer le formulaire';
             }
-
+            if (empty($_POST['titre'])) {
+                $errors['titre'] = 'Le titre ne peut pas être vide';
+            }
             if (empty($errors)) {
-                if (!empty($_POST)) {
-                    $result = $this->Category->update($_GET['id'], [
-                        'titre' => $_POST['titre'],
-                    ]);
-                    return $this->index();
-                }
+                $result = $this->Category->update($_GET['id'], [
+                    'titre' => $_POST['titre'],
+                ]);
+                return $this->index();
             }
         }
         $category = $this->Category->find($_GET['id']);
@@ -75,8 +72,7 @@ class CategoriesController extends AppController
         $this->render('posts.admin.categories.edit', compact('form'));
     }
 
-    public function delete()
-    {
+    public function delete() {
         $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

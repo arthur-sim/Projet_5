@@ -1,4 +1,5 @@
 <?php
+
 namespace Core\Utils;
 
 abstract class Token {
@@ -11,7 +12,7 @@ abstract class Token {
         $token = bin2hex(random_bytes(32));
 
         $_SESSION['csrf'] = [
-            'token'    => $token,
+            'token' => $token,
             'createAt' => new \DateTime(),
         ];
 
@@ -33,4 +34,5 @@ abstract class Token {
         unset($_SESSION['csrf']);
         return true;
     }
+
 }

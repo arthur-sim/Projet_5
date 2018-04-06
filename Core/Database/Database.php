@@ -1,8 +1,10 @@
 <?php
-namespace Core\Database;
-/**
-* 
-*/
-class Database{
 
+namespace Core\Database;
+
+/**
+ * 
+ */
+class Database {
+    
 }
