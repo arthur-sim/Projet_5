@@ -7,15 +7,6 @@ use Core\Exception\HttpException;
 abstract class Kernel {
 
     static function run() {
-        /** $afficherErreurs = 1 => erreurs affichées
-          $afficherErreurs = 0 => erreurs non affichées */
-        $afficherErreurs = 1;
-
-        if ($afficherErreurs === 0) {
-            ini_set("display_errors", 0);
-            error_reporting(0);
-        }
-
 
         define('ROOT', dirname(__DIR__));
         require ROOT . '/app/App.php';
