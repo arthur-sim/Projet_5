@@ -1,8 +1,7 @@
-# Projet 5
+# Portfolio
 
-Le projet 5  est un site , contenant un blog et un cv. Avec une partie administration sécurisée et des commentaires pour réagir sous chaque posts.
- Tout le site est codé en php. 
- Le  projet fait parti de l'ensemnle des projets compris dans la formation de [OpenClassrooms , développeur d'application php/symfony.](https://openclassrooms.com/paths/developpeur-se-d-application-php-symfony) 
+Le portfolio est un site , contenant un blog et un cv. Avec une partie administration sécurisée et des commentaires pour réagir sous chaque posts.
+Tout le site est codé en php. 
 
 # Documentation
 
